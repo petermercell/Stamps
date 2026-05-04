@@ -4,9 +4,6 @@
 #   mkdir build && cd build
 #   cmake .. -DNUKE_INSTALL_PATH=/path/to/Nuke14.1v8
 #   make -j$(nproc)
-#
-# Or for GPU support:
-#   cmake .. -DNUKE_INSTALL_PATH=/path/to/Nuke14.1v8 -DSTAMPS_GPU=ON
 
 cmake_minimum_required(VERSION 3.15)
 project(StampsCpp VERSION 2.0.0 LANGUAGES CXX)
@@ -35,15 +32,6 @@ if(NOT NUKE_INSTALL_PATH)
 endif()
 
 message(STATUS "Nuke install path: ${NUKE_INSTALL_PATH}")
-
-# -----------------------------------------------------------------
-# GPU support (optional)
-# -----------------------------------------------------------------
-option(STAMPS_GPU "Enable GPU pass-through support" OFF)
-if(STAMPS_GPU)
-    message(STATUS "GPU pass-through: ENABLED")
-    add_definitions(-DSTAMPS_GPU)
-endif()
 
 # -----------------------------------------------------------------
 # Nuke NDK includes and libraries
